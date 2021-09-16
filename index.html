@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        $.ajax({
+            headers: { "Accept": "application/json"},
+            type: 'GET',
+            url: 'https://stream.zenolive.com/frsvy955puquv',
+            crossDomain: true,
+            beforeSend: function(xhr){
+                xhr.withCredentials = true;
+          },
+            success: function(data, textStatus, request){
+                console.log(data);
+            }
+        });
+    </script>
+    <title>Kameme FM</title>
+</head>
+<body>
+    <div class="container">
+        <div id="waveform"></div>   
+        <div class="btn" onclick="wavesurfer.on('load', wavesurfer.play.bind(wavesurfer)); wavesurfer.load('https://stream.zenolive.com/frsvy955puquv');"> Play </div>
+
+    </div>
+</body>
+<script>
+    var wavesurfer = WaveSurfer.create({
+        container: document.querySelector('#waveform'),
+        waveColor: '#D9DCFF',
+        progressColor: '#4353FF',
+        cursorColor: '#4353FF',
+        barWidth: 3,
+        barRadius: 3,
+        cursorWidth: 1,
+        height: 200,
+        barGap: 3
+    });
+    
+</script>
+</html>
