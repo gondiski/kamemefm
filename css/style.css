@@ -1,28 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
 *{
     margin: 0;
     padding: 0;
+    outline: none;
+    border: none;
 }
 body{
     background-image: linear-gradient(237deg,  rgba(250,101,10),rgba(250,140,0),rgba(250,151,10));
     height: 100vh;
-    font-family: sans-serif;
+    font-family: 'Nunito', sans-serif;
   }
 .container{
     display: grid;
-    /* justify-content: center; */
     align-items: center;
     grid-gap: 2em;
     margin: 0 auto;
 }
+.audio{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#waveform{
+    border: 1px solid #000;
+}
 .btn{
     display: inline-block;
-    padding: 8.5px 8.5px;
+    padding: 7.5px 8.5px;
     border-radius: 30px;
     background-color: white;
     color: black;
     max-width: 100px;
     box-shadow: rgba(0,0,0, 0.3) 2px 2px;
-    font-size: 16pt;
+    font-size: 14pt;
     text-align: center;
 }
 .btn:hover{
@@ -30,4 +42,7 @@ body{
 }
 .btn::after{
     box-shadow: rgba(20,10,0), 0.5 1px 1px;
+}
+.text{
+    margin: 0 auto;
 }

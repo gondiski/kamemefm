@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/wavesurfer.js"></script>
     <script src="./js/main.js"></script>
-    <script>
+    <!-- <script>
         $.ajax({
             headers: { "Accept": "application/json"},
             type: 'GET',
@@ -21,14 +21,19 @@
                 console.log(data);
             }
         });
-    </script>
+    </script> -->
     <title>Kameme FM</title>
 </head>
 <body>
     <div class="container">
-        <div id="waveform"></div>   
-        <!-- <div class="btn" onclick="wavesurfer.on('load', wavesurfer.play.bind(wavesurfer)); wavesurfer.load('https://stream.zenolive.com/frsvy955puquv');"> Play </div> -->
-
+        <div class="audio">
+            <div id="waveform"></div>   
+            <!-- <button class="btn" onclick="wavesurfer.on('load', wavesurfer.play.bind(wavesurfer)); wavesurfer.load('https://stream.zenolive.com/frsvy955puquv');"> Play </button> -->
+            <button class="btn" onclick="wavesurfer.on('load', wavesurfer.play.bind(wavesurfer)); wavesurfer.load('./Feel in the Dark.mp3');"> Play </button>    
+        </div>
+        <div class="text">
+            <h1>Coming soon</h1>
+        </div>
     </div>
 </body>
 <script>
@@ -41,7 +46,17 @@
         barRadius: 3,
         cursorWidth: 1,
         height: 200,
-        barGap: 3
+        barGap: 3,
+        xhr: {
+            cache: "default",
+            mode: "none",
+            method: "GET",
+            credentials: "include",
+            headers: [
+              { key: "cache-control", value: "no-cache" },
+              { key: "pragma", value: "no-cache" }
+            ]
+          }
     });
     
 </script>
